@@ -1,0 +1,95 @@
+<link rel="stylesheet" type="text/css" href="styles/style.css" />
+
+
+<div class="header">
+  <a href="/main"><h5>Home Page</h5></a>
+  <div class="selected"><img class="cnnpic" src="/images/cnn1.png" alt="cnn" width="60px" height="60px"></div>
+  <a href="/usatoday"><img class="usapic" src="/images/usatoday.png" alt="usatoday" width="60px" height="60px"></a>
+  <a href="/foxnews"><img class="foxpic" src="/images/foxnews.jpeg" alt="foxnews" width="60px" height="60px"></a>
+  <a href="/b"><img class="bbcpic" src="/images/bbc.jpg" alt="bbcnews" width="60px" height="60px"></a>
+  <a href="/economist"><img class="economistpic" src="/images/economist.jpg" alt="the economist" width="60px" height="60px"></a>
+  <a href="/nyt"><img class="nytpic" src="/images/nyt.jpg" alt="the new york times" width="60px" height="60px"></a>
+</div>
+
+<div id="cnnmain">
+  <div id="cnntop">
+      <!-- < % r = SimpleRSS.parse(open('http://cnn.com/rss/cnn_topstories.rss')) %> -->
+      <% r = SimpleRSS.parse(open('http://rss.cnn.com/rss/cnn_topstories.rss')) %>
+
+      </br>
+      <%= r.description %>
+      </br>
+      <h4>Top Stories</h4>
+
+      <% @cnntopstories = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+      <% @cnntopstories.each do |x| %>
+      <div class="topstory">
+        <a href="<%=x[:link]%>"><%=x[:title]%></a>
+        </br>
+        <%= x[:pubDate] %>
+        </br>
+        <!--< %= x[:description] %> -->
+        </br>
+       </div>
+        </br>
+        <%end%>
+
+  </div>
+
+  <div id="cnnworld">
+    <% r = SimpleRSS.parse(open('http://rss.cnn.com/rss/cnn_world.rss')) %>
+
+    </br>
+    </br>
+    <h4>World News</h4>
+
+    <% @cnnworld = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+    <% @cnnworld.each do |x| %>
+        <div class="topstory">
+          <a href="<%=x[:link] %>"><%=x[:title]%></a>
+          </br>
+          <%= x[:pubDate] %>
+          </br>
+        </div>
+        </br>
+    <%end %>
+  </div>
+
+  <div id="cnnentertainment">
+    <% r = SimpleRSS.parse(open('http://rss.cnn.com/rss/cnn_showbiz.rss')) %>
+
+    </br>
+    </br>
+    <h4>Entertainment</h4>
+
+    <% @cnnentertainment = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+    <% @cnnentertainment.each do |x| %>
+        <div class="topstory">
+          <a href="<%=x[:link] %>"><%=x[:title]%></a>
+          </br>
+          <%= x[:pubDate] %>
+          </br>
+        </div>
+        </br>
+    <%end %>
+  </div>
+
+  <div id="studentnews">
+    <% r=SimpleRSS.parse(open('http://rss.cnn.com/rss/cnn_studentnews.rss')) %>
+
+    </br>
+    </br>
+    <h4>CNN Students</h4>
+
+    <% @studentnews = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+    <% @studentnews.each do |x| %>
+        <div class="topstory">
+          <a href="<%=x[:link] %>"><%=x[:title]%></a>
+          </br>
+          <%= x[:pubDate] %>
+          </br>
+        </div>
+        </br>
+    <%end %>
+  </div>
+</div>

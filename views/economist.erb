@@ -1,0 +1,52 @@
+<link rel="stylesheet" type="text/css" href="styles/style.css" />
+
+<div class="header">
+  <div class="selected"><a href="/main"><h5>Home Page</h5></a></div>
+  <a href="/cnn"><img class="cnnpic" src="/images/cnn1.png" alt="cnn" width="60px" height="60px"></a>
+  <a href="/usatoday"><img class="usapic" src="/images/usatoday.png" alt="usatoday" width="60px" height="60px"></a>
+  <a href="/foxnews"><img class="foxpic" src="/images/foxnews.jpeg" alt="foxnews" width="60px" height="60px"></a>
+  <a href="/b"><img class="bbcpic" src="/images/bbc.jpg" alt="bbcnews" width="60px" height="60px"></a>
+  <div class="selected"><img class="economistpic" src="/images/economist.jpg" alt="the economist" width="60px" height="60px"></div>
+  <a href="/nyt"><img class="nytpic" src="/images/nyt.jpg" alt="the new york times" width="60px" height="60px"></a>
+</div>
+<div id="economistmain">
+  <div id="economisttop">
+    <% r = SimpleRSS.parse(open('http://www.economist.com/sections/united-states/rss.xml')) %>
+    </br>
+    <%= r.description %>
+    <h4>News Top Stories</h4>
+
+    <% @economisttopstories = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+    <% @economisttopstories.each do |x| %>
+        <div class="etopstory">
+          <a href="<%=x[:link] %>"><%=x[:title]%></a>
+          </br>
+          <%= x[:pubDate] %>
+          </br>
+          <%= x[:description] %>
+        </div>
+        </br>
+    <%end %>
+  </div>
+
+  <div id="economistworld">
+    <% r = SimpleRSS.parse(open('http://www.economist.com/sections/international/rss.xml')) %>
+    </br>
+    <h4>International Stories</h4>
+
+    <% @eworld = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+    <% @eworld.each do |x| %>
+        <div class="etopstory">
+          <a href="<%=x[:link]%>"><%=x[:title]%></a>
+          </br>
+          <%= x[:pubDate] %>
+          </br>
+          <%= x[:description] %>
+        </div>
+        </br>
+    <%end %>
+  </div>
+</div>
+
+
+

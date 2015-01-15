@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>NewsParser</title>
+
+    <!-- <link rel="stylesheet" type="text/css" href="styles/home.css" /> -->
+
+</head>
+<body>
+
+<div id="header">
+    <h1>Welcome.</h1>
+
+</div>
+
+<div class="main">
+    <p>NewsParser is a website that allows individuals to compare different news sources, such as CNN, USA Today, FOX News,
+     and many others. By comparing these sources, individuals are able to pick and choose the articles of their choice. Our
+     goal is simple: to give you the ability to sort through different news sources all in one place.</p>
+</div>
+
+<!--
+<form action="/login" method="get">
+    <button class="but1" type="submit">Login</button>
+</form>-->
+
+
+<form action = "/newsparser1" method="post">
+    <fieldset>
+        <legend><h3>Login to NewsParser</h3></legend>
+        <p>Please fill out the information below to login</p>
+        Username: <input type="text" name ="username" placeholder="Username"></br>
+        Password: <input type="password" name ="password" placeholder="Password"></br>
+        <input type="submit" value="Login">
+    </fieldset>
+</form>
+
+<!--
+<form action="/signup" method="get">
+    <button class="but1" type="submit">Sign Up</button>
+</form>
+-->
+
+<form action = "/newsparser" method="post">
+    <fieldset class="field">
+        <legend><h3>Signup for NewsParser</h3></legend>
+        <p>Please fill out the information below to sign up.</p>
+        Username: <input type="text" name ="username" placeholder="Username"></br>
+        Password: <input type="password" name ="password" placeholder="Password"></br>
+        <input type="submit" value="Sign Up">
+    </fieldset>
+</form>
+<!--
+
+<form action="/test" method="get">
+    <button class="but1" type="submit">Check it out!</button>
+</form>
+-->
+
+
+</body>
+</html>

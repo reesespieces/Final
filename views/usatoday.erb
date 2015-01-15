@@ -1,0 +1,94 @@
+<link rel="stylesheet" type="text/css" href="styles/style.css" />
+
+<div class="header">
+  <div class="selected"><a href="/main"><h5>Home Page</h5></a></div>
+  <a href="/cnn"><img class="cnnpic" src="/images/cnn1.png" alt="cnn" width="60px" height="60px"></a>
+  <div class="selected"><img class="usapic" src="/images/usatoday.png" alt="usatoday" width="60px" height="60px"></div>
+  <a href="/foxnews"><img class="foxpic" src="/images/foxnews.jpeg" alt="foxnews" width="60px" height="60px"></a>
+  <a href="/b"><img class="bbcpic" src="/images/bbc.jpg" alt="bbcnews" width="60px" height="60px"></a>
+  <a href="/economist"><img class="economistpic" src="/images/economist.jpg" alt="the economist" width="60px" height="60px"></a>
+  <a href="/nyt"><img class="nytpic" src="/images/nyt.jpg" alt="the new york times" width="60px" height="60px"></a>
+</div>
+
+<div id="usamain">
+  <div id="usatop">
+      <% r = SimpleRSS.parse(open('http://rssfeeds.usatoday.com/usatoday-NewsTopStories')) %>
+
+      <p>USA Today provides informational resources that are updated with the latest news.</p>
+
+      <h4>News Top Stories</h4>
+
+      <% @usatopstories = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+      <% @usatopstories.each do |x| %>
+      <div class="topstory">
+          <a href="<%=x[:link] %>"><%=x[:title]%></a>
+          </br>
+          <%= x[:pubDate] %>
+          </br>
+          <%= x[:description] %>
+        </div>
+        </br>
+      <%end %>
+  </div>
+
+  <div id="usaworld">
+    <%r = SimpleRSS.parse(open('http://rssfeeds.usatoday.com/UsatodaycomWorld-TopStories')) %>
+    </br>
+    </br>
+
+    <h4>World Top Stories</h4>
+
+    <% @usaworld = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+    <% @usaworld.each do |x| %>
+        <div class="topstory">
+          <a href="<%=x[:link] %>"><%=x[:title]%></a>
+          </br>
+          <%= x[:pubDate] %>
+          </br>
+          <%= x[:description] %>
+        </div>
+        </br>
+    <%end %>
+  </div>
+
+  <div id="usasports">
+    <% r=SimpleRSS.parse(open('http://rssfeeds.usatoday.com/UsatodaycomSports-TopStories')) %>
+
+    </br>
+    </br>
+    <h4>Sports News</h4>
+
+    <% @usasports = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+    <% @usasports.each do |x| %>
+        <div class="topstory">
+          <a href="<%=x[:link] %>"><%=x[:title]%></a>
+          </br>
+          <%= x[:pubDate] %>
+          </br>
+          <%= x[:description] %>
+        </div>
+        </br>
+    <%end%>
+  </div>
+
+  <div id="usaentertainment">
+    <% r = SimpleRSS.parse(open('http://rssfeeds.usatoday.com/usatoday-LifeTopStories')) %>
+
+    </br>
+    </br>
+    <h4>Entertainment</h4>
+
+    <% @usaentertainment = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+    <% @usaentertainment.each do |x| %>
+        <div class="topstory">
+          <a href="<%=x[:link] %>"><%=x[:title]%></a>
+          </br>
+          <%= x[:pubDate] %>
+          </br>
+          <%= x[:description] %>
+        </div>
+        </br>
+    <%end %>
+  </div>
+
+</div>

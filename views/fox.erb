@@ -1,0 +1,94 @@
+<link rel="stylesheet" type="text/css" href="styles/style.css" />
+
+<div class="header">
+  <div><a href="/main"><h5>Home Page</h5></a></div>
+  <a href="/cnn"><img class="cnnpic" src="/images/cnn1.png" alt="cnn" width="60px" height="60px"></a>
+  <a href="/usatoday"><img class="usapic" src="/images/usatoday.png" alt="usatoday" width="60px" height="60px"></a>
+  <div class="selected"><img class="foxpic" src="/images/foxnews.jpeg" alt="foxnews" width="60px" height="60px"></div>
+  <a href="/b"><img class="bbcpic" src="/images/bbc.jpg" alt="bbcnews" width="60px" height="60px"></a>
+  <a href="/economist"><img class="economistpic" src="/images/economist.jpg" alt="the economist" width="60px" height="60px"></a>
+  <a href="/nyt"><img class="nytpic" src="/images/nyt.jpg" alt="the new york times" width="60px" height="60px"></a>
+</div>
+
+<div id="foxmain">
+  <div id="foxtop">
+      <% r = SimpleRSS.parse(open('http://feeds.foxnews.com/foxnews/latest')) %>
+      </br>
+      <%= r.description %>
+
+      </br>
+      <h4>Top Stories</h4>
+
+      <% @foxtopstories = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+      <% @foxtopstories.each do |x| %>
+         <div class="topstory">
+            <a href="<%=x[:link] %>"><%=x[:title]%></a>
+            </br>
+            <%= x[:pubDate] %>
+            </br>
+            <!-- < %= x[:description] %> -->
+          </div>
+          </br>
+      <%end %>
+  </div>
+
+  <div id="foxworld">
+    <% r = SimpleRSS.parse(open('http://feeds.foxnews.com/foxnews/world')) %>
+    </br>
+    </br>
+    <h4>World Stories</h4>
+
+    <% @worldstories = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+    <% @worldstories.each do |x| %>
+        <div class="topstory">
+          <a href="<%=x[:link] %>"><%=x[:title]%></a>
+          </br>
+          <%= x[:pubDate] %>
+          </br>
+            <!-- < %= x[:description] %> -->
+        </div>
+        </br>
+    <%end %>
+  </div>
+
+  <div id="foxsports">
+    <% r = SimpleRSS.parse(open('http://feeds.foxnews.com/foxnews/sports')) %>
+    </br>
+    </br>
+
+    <h4>Sports</h4>
+
+    <% @sportsstories = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+    <% @sportsstories.each do |x| %>
+        <div class="topstory">
+          <a href="<%=x[:link] %>"><%=x[:title]%></a>
+          </br>
+          <%= x[:pubDate] %>
+          </br>
+          <!-- < %= x[:description] %> -->
+        </div>
+        </br>
+    <%end %>
+  </div>
+
+  <div id="foxpopular">
+    <% r = SimpleRSS.parse(open('http://feeds.foxnews.com/foxnews/most-popular')) %>
+
+    </br>
+    </br>
+
+    <h4>Most Popular</h4>
+
+    <% @popularstories = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+    <% @popularstories.each do |x| %>
+        <div class="topstory">
+          <a href="<%=x[:link] %>"><%=x[:title]%></a>
+          </br>
+          <%= x[:pubDate] %>
+          </br>
+          <!-- < %= x[:description] %> -->
+        </div>
+        </br>
+    <%end %>
+  </div>
+</div>

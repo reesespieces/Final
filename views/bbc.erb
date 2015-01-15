@@ -1,0 +1,98 @@
+<link rel="stylesheet" type="text/css" href="styles/style.css" />
+
+<div class="header">
+  <div class="selected"><a href="/main"><h5>Home Page</h5></a></div>
+  <a href="/cnn"><img class="cnnpic" src="/images/cnn1.png" alt="cnn" width="60px" height="60px"></a>
+  <a href="/usatoday"><img class="usapic" src="/images/usatoday.png" alt="usatoday" width="60px" height="60px"></a>
+  <a href="/foxnews"><img class="foxpic" src="/images/foxnews.jpeg" alt="foxnews" width="60px" height="60px"></a>
+  <div class="selected"><img class="bbcpic" src="/images/bbc.jpg" alt="bbcnews" width="60px" height="60px"></div>
+  <a href="/economist"><img class="economistpic" src="/images/economist.jpg" alt="the economist" width="60px" height="60px"></a>
+  <a href="/nyt"><img class="nytpic" src="/images/nyt.jpg" alt="the new york times" width="60px" height="60px"></a>
+</div>
+
+<div id="bbcmain">
+  <div id="bbctop">
+      <% r = SimpleRSS.parse(open('http://feeds.bbci.co.uk/news/rss.xml')) %>
+
+      </br>
+      <p>BBC News is an international news sources that brings its readers updated news around the clock</p>
+
+      <h4>News Top Stories</h4>
+
+      <% @bbctopstories = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+      <% @bbctopstories.each do |x| %>
+          <div class="topstory">
+            <a href="<%=x[:link] %>"><%=x[:title]%></a>
+            </br>
+            <%= x[:pubDate] %>
+            </br>
+            <%= x[:description] %>
+          </div>
+          </br>
+      <%end%>
+  </div>
+
+  <div id="bbcworld">
+    <% r = SimpleRSS.parse(open('http://feeds.bbci.co.uk/news/world/rss.xml')) %>
+
+    </br>
+    </br>
+    </br>
+    <h4>World News</h4>
+
+    <% @stories = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+    <% @stories.each do |x| %>
+        <div class="topstory">
+          <a href="<%=x[:link] %>"><%=x[:title]%></a>
+          </br>
+          <%= x[:pubDate] %>
+          </br>
+          <%= x[:description] %>
+        </div>
+        </br>
+    <%end %>
+  </div>
+
+  <div id="bbcbusiness">
+    <% r = SimpleRSS.parse(open('http://feeds.bbci.co.uk/news/politics/rss.xml')) %>
+    </br>
+    </br>
+    </br>
+    <h4>Business</h4>
+
+    <% @stories = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+    <% @stories.each do |x| %>
+        <div class="topstory">
+          <a href="<%=x[:link] %>"><%=x[:title]%></a>
+          </br>
+          <%= x[:pubDate] %>
+          </br>
+          <%= x[:description] %>
+        </div>
+        </br>
+    <%end %>
+  </div>
+
+  <div id="bbcentertainment">
+    <% r = SimpleRSS.parse(open('http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml')) %>
+    </br>
+    </br>
+    </br>
+
+    <h4>Entertainment & Arts</h4>
+
+    <% @entertainment = [r.entries[0], r.entries[1], r.entries[2], r.entries[3], r.entries[4]] %>
+    <% @stories.each do |x| %>
+        <div class="topstory">
+          <a href="<%=x[:link] %>"><%=x[:title]%></a>
+          </br>
+          <%= x[:pubDate] %>
+          </br>
+          <%= x[:description] %>
+        </div>
+        </br>
+    <%end%>
+
+  </div>
+
+</div>

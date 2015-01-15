@@ -1,0 +1,101 @@
+.header {
+    position:absolute;
+    height:65px;
+    /*width:96.25%;*/
+    width:98.5%;
+    margin:0;
+    padding:0;
+    /*background-color: green;*/
+
+}
+
+.header h5 {
+    position:absolute;
+    left:25px;
+    text-decoration:none;
+}
+
+.mainselected {
+    position:absolute;
+    background-color:lightgrey;
+    /*padding-top: 5px;*/
+    padding-left:5px;
+    padding-right:5px;
+    width:110px;
+    height:65px;
+}
+
+.cnnpic {
+    padding-top: 5px;
+    padding-left:5px;
+    padding-right:5px;
+    position: absolute;
+    left: 120px;
+}
+
+.usapic {
+    padding-top:5px;
+    padding-left:5px;
+    padding-right:5px;
+    position: absolute;
+    left:190px;
+}
+
+.foxpic {
+    padding-top:5px;
+    padding-left:5px;
+    padding-right:5px;
+    position: absolute;
+    left:260px;
+}
+
+.bbcpic {
+    padding-top:5px;
+    padding-left:5px;
+    padding-right:5px;
+    position: absolute;
+    left:330px;
+}
+
+.economistpic {
+    padding-top:5px;
+    padding-left:5px;
+    padding-right:5px;
+    position: absolute;
+    left:400px;
+}
+
+.nytpic {
+    padding-top:5px;
+    padding-left:5px;
+    padding-right:5px;
+    position: absolute;
+    left:470px;
+}
+
+.main {
+    position:absolute;
+    width:1245px;
+    top:65px;
+    background:lightgrey; /*#ca0002;*/
+    margin-top:5px;
+    padding-top:0;
+    padding-bottom:15px;
+    padding-left:15px;
+    padding-right:5px;
+}
+
+.topstory {
+    background-color:#96B0C6; /*#ca0002;*/
+    width:1215px;
+    border-radius:10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.main a {
+    text-decoration:none;
+    font-weight:bold;
+    color:darkblue;
+}
+
